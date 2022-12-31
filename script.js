@@ -14,10 +14,13 @@ function onSubmit(e) {
         // const li = document.createElement('li');
         // li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
         // userList.appendChild(li);
-
-
-        localStorage.setItem('name', nameInput.value);
-        localStorage.setItem('email', emailInput.value);
+        // localStorage.setItem('name', nameInput.value);
+        // localStorage.setItem('email', emailInput.value);
+        let myObj = {name: nameInput.value, email: emailInput.value};
+        let myObjString = JSON.stringify(myObj);
+        localStorage.setItem('myObj', myObjString);
+        let myObjDeserialize = JSON.parse(localStorage.getItem('myObj'));
+        console.log(myObjDeserialize);
         nameInput.value = '';
         emailInput.value = '';
     }
